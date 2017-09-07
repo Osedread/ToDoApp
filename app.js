@@ -1,24 +1,57 @@
-let els = document.querySelectorAll('.element');
-let del = document.getElementsByClassName('delete');
-let add = document.getElementById('addButton');
+let list = document.getElementById('list'),
+    els = document.querySelectorAll('.element'),
+    del = document.getElementsByClassName('delete'),
+    addBtn = document.getElementById('addButton');
 
-// EventListener for Delete btn
-for (let value of del) {
-    value.addEventListener('click', () => {
-        let parent = value.closest('.element');
-        parent.remove();
-    });
+// Helper functions
+// Since .insertAfter() doesn't really exist, we create a function equivalent
+function insertAfter(newNode, referenceNode) {
+    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
 }
 
-// EventListener for Add btn
-add.addEventListener('click', () => {
-    let parent = document.getElementById('list');
+// Function add
+function add() {
     let inputValue = document.getElementById('add').value;
-    let div = document.createElement('div');
-    div.className += 'element row';
-    div.innerHTML = "<span class='col-xs-6 col-sm-4 col-md-3'>" + inputValue + "</span>";
-    div.innerHTML += "<button class='up btn btn-secondary pull-xs-right col-xs-2 col-sm-2' type='button'>Up</button>";
-    div.innerHTML += "<button class='down btn btn-secondary pull-xs-right col-xs-2 col-sm-2' type='button'>Down</button>";
-    div.innerHTML += "<button class='delete btn btn-danger pull-xs-right col-xs-2 col-sm-2' type='button'>Delete</button>";
-    parent.appendChild(div);
+    if (inputValue !== '') {
+        let div = document.createElement('div');
+        div.className += 'element row';
+        div.innerHTML = "<span class='col-xs-9 col-sm-7 col-md-5'>" + inputValue + "</span>";
+        div.innerHTML += "<button class='up btn btn-primary pull-xs-right col-xs-2 col-sm-2' type='button'>Up</button>";
+        div.innerHTML += "<button class='down btn btn-primary pull-xs-right col-xs-2 col-sm-2' type='button'>Down</button>";
+        div.innerHTML += "<button class='delete btn btn-danger pull-xs-right col-xs-2 col-sm-2' type='button'>Delete</button>";
+        list.appendChild(div);
+    }
+}
+
+// EventListener for Delete btn
+    // We will use event delegation instead of caching every btn handler
+    list.addEventListener('click', (event) => {
+        let target = event.target,
+            parentElem = target.closest('.element'),
+            parentList = parentElem.closest('#list'),
+            prevElem = parentElem.previousElementSibling,
+            nextElem = parentElem.nextElementSibling;
+
+        if (target.classList.contains('delete')) {
+            parentElem.remove();
+        } 
+        else if (target.classList.contains('up') && prevElem !== null||undefined) {
+            parentList.insertBefore(parentElem, prevElem);
+        }
+        else if (target.classList.contains('down') && nextElem != null||undefined) {
+            insertAfter(parentElem, nextElem);
+        }
+    });
+
+let input = document.getElementById('add');
+// EventListener on Enter Key
+input.addEventListener('keypress', () => {
+    if (event.which === 13) {
+        add();
+    }
 });
+// EventListener for Add btn
+addBtn.addEventListener('click', () => { add() });
+
+
+

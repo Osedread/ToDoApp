@@ -1,12 +1,33 @@
-.element {
-    margin-bottom: 1em;
+body {
+    background-color: rgb(242, 232, 130);
+    font-family: 'Titillium Web', sans-serif;    
 }
 
-button {
+.element {
+    border: 2px solid black;
+    border-radius: 0;
+    padding: 0.5em;
+    margin: .2em;
+    font-weight: bold;
+}
+
+.element .btn,
+.addContainer .btn {
     margin-right: 0.4em;
+    color: black;
+    border: 1px solid black;
+    border-radius: 0;
 }
 
 input {
     height: 100%;
-    border-radius: 5px;
+    border-radius: 0;
+    border: 1px solid black;
+    margin-left: 0.2em;
+    background-color: rgb(211, 204, 71);
+}
+
+h1 {
+    font-weight: bold;
+    margin: 1.2em;
 }
