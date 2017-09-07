@@ -1,0 +1,12 @@
+.element {
+    margin-bottom: 1em;
+}
+
+button {
+    margin-right: 0.4em;
+}
+
+input {
+    height: 100%;
+    border-radius: 5px;
+}

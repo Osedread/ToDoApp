@@ -1,51 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta charset='utf-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
 	<title>To Do App</title>
 	
 <!-- STYLE -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-	<link rel="stylesheet" href="style.css">
+	<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css' integrity='sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ' crossorigin='anonymous'>
+	<link rel='stylesheet' href='style.css'>
 </head>
 <body>
-	<div class="container text-xs-center">
-		<div class="row">
-			<div class="col-xs-12 col-sm-10 offset-sm-1 col-md-6 offset-md-3">
-				<h1>To Do App</h1>
-				<p>
-					<span class="col-xs-6 col-sm-4 col-md-3">Bananas</span>
-					<button class="btn btn-secondary pull-xs-right col-xs-2 col-sm-2" type="up">Up</button>
-					<button class="btn btn-secondary pull-xs-right col-xs-2 col-sm-2" type="down">Down</button>
-					<button class="btn btn-danger pull-xs-right col-xs-2 col-sm-2" type="delete">Delete</button></p>
-				<p>
-					<span class="col-xs-6 col-sm-4 col-md-3">Apples</span>
-					<button class="btn btn-secondary pull-xs-right col-xs-2 col-sm-2" type="up">Up</button>
-					<button class="btn btn-secondary pull-xs-right col-xs-2 col-sm-2" type="down">Down</button>
-					<button class="btn btn-danger pull-xs-right col-xs-2 col-sm-2" type="delete">Delete</button></p>
-				<p>
-					<span class="col-xs-6 col-sm-4 col-md-3">Pears</span>
-					<button class="btn btn-secondary pull-xs-right col-xs-2 col-sm-2" type="up">Up</button>
-					<button class="btn btn-secondary pull-xs-right col-xs-2 col-sm-2" type="down">Down</button>
-					<button class="btn btn-danger pull-xs-right col-xs-2 col-sm-2" type="delete">Delete</button></p>
-				<p>
-					<span class="col-xs-6 col-sm-4 col-md-3">Grapes</span>
-					<button class="btn btn-secondary pull-xs-right col-xs-2 col-sm-2" type="up">Up</button>
-					<button class="btn btn-secondary pull-xs-right col-xs-2 col-sm-2" type="down">Down</button>
-					<button class="btn btn-danger pull-xs-right col-xs-2 col-sm-2" type="delete">Delete</button></p>
+	<div class='container text-xs-center'>
+		<h1 class="text-center"> To Do App</h1>
+		<div class='row'>
+			<div id='list' class='col-xs-12 col-sm-10 offset-sm-1 col-md-6 offset-md-3'>
+				<div class='element row'>
+					<span class='col-xs-6 col-sm-4 col-md-3'>Bananas</span>
+					<button class='up btn btn-secondary pull-xs-right col-xs-2 col-sm-2' type='button'>Up</button>
+					<button class='down btn btn-secondary pull-xs-right col-xs-2 col-sm-2' type='button'>Down</button>
+					<button class='delete btn btn-danger pull-xs-right col-xs-2 col-sm-2' type='button'>Delete</button>
+				</div>
+				<div class='element row'>
+					<span class='col-xs-6 col-sm-4 col-md-3'>Apples</span>
+					<button class='up btn btn-secondary pull-xs-right col-xs-2 col-sm-2' type='button'>Up</button>
+					<button class='down btn btn-secondary pull-xs-right col-xs-2 col-sm-2' type='button'>Down</button>
+					<button class='delete btn btn-danger pull-xs-right col-xs-2 col-sm-2' type='button'>Delete</button>
+				</div>
+				<div class='element row'>
+					<span class='col-xs-6 col-sm-4 col-md-3'>Pears</span>
+					<button class='up btn btn-secondary pull-xs-right col-xs-2 col-sm-2' type='button'>Up</button>
+					<button class='down btn btn-secondary pull-xs-right col-xs-2 col-sm-2' type='button'>Down</button>
+					<button class='delete btn btn-danger pull-xs-right col-xs-2 col-sm-2' type='button'>Delete</button>
+				</div>
+				<div class='element row'>
+					<span class='col-xs-6 col-sm-4 col-md-3'>Grapes</span>
+					<button class='up btn btn-secondary pull-xs-right col-xs-2 col-sm-2' type='button'>Up</button>
+					<button class='down btn btn-secondary pull-xs-right col-xs-2 col-sm-2' type='button'>Down</button>
+					<button class='delete btn btn-danger pull-xs-right col-xs-2 col-sm-2' type='button'>Delete</button>
+				</div>
 			</div>
-			<div class="col-xs-12 col-sm-10 offset-sm-1 col-md-6 offset-md-3">
-				<input type="text" name="" value=""> <button class="btn btn-primary" id='addButton' type="add">Add</button>
+			<div class='col-xs-12 col-sm-10 offset-sm-1 col-md-6 offset-md-3'>
+				<input id='add' type='text' name='' value='' class='col-xs-6 col-sm-7'> <button class='btn btn-primary' id='addButton' type='add'>Add</button>
 			</div>
 		</div>
 	</div>
 
 
 <!-- SCRIPTS -->
-	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+	<script src='app.js'></script>
 </body>
-</html>
+</html
