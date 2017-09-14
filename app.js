@@ -11,15 +11,23 @@ function insertAfter(newNode, referenceNode) {
 
 // Function add
 function add() {
-    let inputValue = document.getElementById('add').value;
+    let input = document.getElementById('add');
+    let inputValue = input.value;
     if (inputValue !== '') {
+        let amend = inputValue.split('');
+        firstLetter = amend[0].toUpperCase();
+        amend.shift();
+        amend.unshift(firstLetter);
+        amend.join('');
+        console.log(amend, firstLetter);
         let div = document.createElement('div');
         div.className += 'element row';
-        div.innerHTML = "<span class='col-xs-9 col-sm-7 col-md-5'>" + inputValue + "</span>";
-        div.innerHTML += "<button class='up btn btn-primary pull-xs-right col-xs-2 col-sm-2' type='button'>Up</button>";
-        div.innerHTML += "<button class='down btn btn-primary pull-xs-right col-xs-2 col-sm-2' type='button'>Down</button>";
-        div.innerHTML += "<button class='delete btn btn-danger pull-xs-right col-xs-2 col-sm-2' type='button'>Delete</button>";
+        div.innerHTML = "<span class='col-xs-9 col-sm-7 col-md-5'>" + amend + "</span>";
+        div.innerHTML += "<button class='up btn btn-primary pull-xs-right col-xs-2 col-sm-2' type='button'>UP</button>";
+        div.innerHTML += "<button class='down btn btn-primary pull-xs-right col-xs-2 col-sm-2' type='button'>DOWN</button>";
+        div.innerHTML += "<button class='delete btn btn-danger pull-xs-right col-xs-2 col-sm-2' type='button'>DELETE</button>";
         list.appendChild(div);
+        input.value = '';
     }
 }
 
@@ -50,8 +58,9 @@ input.addEventListener('keypress', () => {
         add();
     }
 });
+
 // EventListener for Add btn
-addBtn.addEventListener('click', () => { add() });
+addBtn.addEventListener('click', () => { add(); });
 
 
 
