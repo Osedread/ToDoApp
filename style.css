@@ -4,10 +4,10 @@ body {
 }
 
 .list {
-    border-top: 6px solid rgb(0, 157, 255);
-    border-left: 3px solid rgb(0, 157, 255);
-    border-right: 6px solid rgb(0, 157, 255);
-    border-radius: 18px;
+    border-top: 6px solid black;
+    border-left: 3px solid black;
+    border-right: 6px solid black;
+    border-radius: 10px;
 }
 
 .element {
